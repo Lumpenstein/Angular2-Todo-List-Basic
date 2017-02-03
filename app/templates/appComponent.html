@@ -1,0 +1,18 @@
+<section class="list">
+  <h1>{{title}}</h1>
+
+  <input #task  (keyup.enter)="add(task.value); task.value=''" type="text" placeholder="Enter a new todo"><button (click)="add(task.value); task.value=''">ADD</button>
+  
+
+  <h2>TODO : </h2>
+  <ul>  
+    <li *ngFor="let current of todos"  [class.odd]='current.id % 2 === 0' [class.done]='current.status === true'>
+        <input [(ngModel)]="current.status" type="checkbox">
+        <input [(ngModel)]="current.task"  type="text" value="{{current.task}}" [class.done]='current.status === true'><button (click)="delete(current)">X</button>
+    </li>
+  </ul>
+</section>
+
+<!-- <student-detail [currentStudent]=selectedStudent></student-detail> -->
+
+<!-- (click) = 'selectStudent(current)' -->
